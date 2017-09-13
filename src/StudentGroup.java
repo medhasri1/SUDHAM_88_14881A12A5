@@ -113,8 +113,20 @@ public class StudentGroup implements StudentArrayOperation {
 		s=s1;
 		}
 	}
+	@Override
+	public void remove(int index) throws IllegalArgumentException {
+		// Add your implementation here
+		if(index<0 || index>=students.length)
+			throw new IllegalArgumentException();
+		for(int k=index;k<students.length-1;k++)
+		{
+			students[k]=students[k+1];
+		}
+	}
 
 	@Override
+
+	
 	public void remove(int index) throws IllegalArgumentException {
 		// Add your implementation here
 		if(index<0 || index>=students.length)
@@ -236,7 +248,7 @@ public class StudentGroup implements StudentArrayOperation {
 				students[k+1]=s1;
 				}
 			}
-		}
+		}}
 		@Override
 	public Student[] getByBirthDate(Date date)throws IllegalArgumentException {
 		// Add your implementation here

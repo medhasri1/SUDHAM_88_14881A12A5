@@ -19,12 +19,21 @@ public class StudentGroup implements StudentArrayOperation {
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
 	 */
+	
+	ArrayList<Student> s=new ArrayList<Student>(Arrays.asLists(students));
+	LinkedList l=new LinkedList(Arrays.asList(students));
+	Iterator i=s.iterator();
+	
 	public StudentGroup(int length) {
 		this.students = new Student[length];
 	}
 
 	@Override
 	public Student[] getStudents() {
+		while(i.hasNext()){
+		Object Element =i.next();
+			System.out.println(i.next());
+		}
 		// Add your implementation here
 		return null;
 	}
@@ -47,47 +56,56 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void addFirst(Student student) {
-		// Add your implementation here
+		l.addFirst(student);
 	}
 
 	@Override
 	public void addLast(Student student) {
-		// Add your implementation here
+		l.addLast(student);
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
+		s.add(student,index);
 	}
 
 	@Override
 	public void remove(int index) {
-		// Add your implementation here
+		s.remove(index);
 	}
 
 	@Override
 	public void remove(Student student) {
+		int n=s.indexOf(student);
+		remove(n);
 		// Add your implementation here
+		
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		s.removeRange(index,s.size());
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
+		int n=s.indexOf(student);
+			removeFromIndex(n);
 		// Add your implementation here
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		s.removeRange(0,index)
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		int n=s.indexOf(student);
+		removeToIndex(n);
 	}
 
 	@Override
@@ -134,6 +152,8 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
+		int n=s.indexOf(student);
+		getStudents(n+1);
 		return null;
 	}
 }
